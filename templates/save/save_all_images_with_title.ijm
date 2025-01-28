@@ -1,4 +1,5 @@
 // Saves all the images currently open in Fiji in TIFF format.
+// Credits: Namsoon Eon
 
   if (nImages==0)
      exit("No images are open");
