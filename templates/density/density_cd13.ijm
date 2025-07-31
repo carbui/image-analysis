@@ -13,15 +13,9 @@ for (i = 0; i < lengthOf(filelist); i++) {
 		open(folder + file);
 		run("Z Project...", "projection=[Max Intensity]"); //run images to stack
 		imageName = getTitle(); //set “imageName” as the original name of each image
-		run("Split Channels"); //split the four channels 
-		//selectWindow("C1-"+ imageName); //close the channels I don't need cause imagej has not memory enough
-		//close();
-		selectWindow("C1-"+ imageName);
-		close(); 
-		selectWindow("C2-"+ imageName); //Select window of the channel number three (PDXL)
-		close();	// closes the opened images 
+		run("Arrange Channels...", "new=3"); //keep only channel 3
 
-		selectWindow("C3-"+ imageName); //Select window of the channel number four (pericytes)
+		selectWindow("C3-"+ imageName); //Select window of the channel number three (pericytes)
 		run("Subtract Background...", "rolling=50"); //subtract background
 		run("Despeckle"); //remove little particle noise
 		resetThreshold();
